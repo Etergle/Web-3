@@ -1,24 +1,28 @@
 {% extends "__layout.twig" %}
 
 {% block content %} 
-        <div class="container">
-            <h1>{{title}} </h1>
-        </div>
+    <div class="container">
+        <h1>{{title}} </h1>
+    </div>
         
-    <div class="container"></div>
+    <div class="container">
         <ul class="list-group">
             <li class="list-group-item">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link {{ active_item.url_image == url ? 'active' }}" href="{{active_item.url_image}}">Картинка</a>
+                        {% import "forms.html" as forms %}
+                        {{ forms.btn('Картинка', active_item.url_image, active_item.url_image == url,'nav-link active') }}
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ active_item.url_info == url ? 'active' }}" href="{{active_item.url_info}}">Описание</a>
+                    <li class="nav-item ">   
+                        {% import "forms.html" as forms %}
+                        {{forms.btn('Описание', active_item.url_info,active_item.url_info == url,'nav-link active' ) }}
                     </li>
                 </ul>
             </li>
+        </li>
         {% block objectContent %}
-
+            
         {% endblock %}
     </div>
+            
 {% endblock %}
