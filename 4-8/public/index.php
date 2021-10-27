@@ -19,20 +19,44 @@ $twig = new \Twig\Environment($loader);
 $url  = $_SERVER["REQUEST_URI"];
 
 $context = [];
+$controller = null;
 
 if ($url == "/") {
-    $title = "Главная";
-    $template = "main.twig";
+    $controller = new MainController($twig, $url);
 } elseif (preg_match("#/abstractionism#", $url)) {
-    $title = "Абстракционизм";
-    $template = "image.twig";
-    $context['image'] = "/images/Kazimir_Malevich.png";
-} elseif (preg_match("#/art-nouveau#", $url)) {
-    $title = "Ар-нуво";
-    $template = "image.twig";
-    $context['image'] = "/images/Alphonse_Mucha.png";
+    $controller = new abstractionismController($twig, $url);
+      
+    if (preg_match("#^/abstractionism/image#", $url)) {
+        $controller = new abstractionismImageController($twig, $url);
+    } elseif (preg_match("#^/abstractionism/info#", $url)) {
+        $controller = new abstractionismInfoController($twig, $url);
+    } 
+} elseif (preg_match("#/artnouveau#", $url)) {
+    $controller = new artnouveauController($twig, $url);
+    
+    if (preg_match("#^/artnouveau/image#", $url)) {
+        $controller = new artnouveauImageController($twig, $url);
+    } elseif (preg_match("#^/artnouveau/info#", $url)) {
+        $controller = new artnouveauInfoController($twig, $url);
+    } 
+} elseif (preg_match("#/avantgarde#", $url)) {
+    $controller = new avantgardeController($twig, $url);
+      
+    if (preg_match("#^/avantgarde/image#", $url)) {
+        $controller = new avantgardeImageController($twig, $url);
+    } elseif (preg_match("#^/avantgarde/info#", $url)) {
+        $controller = new avantgardeInfoController($twig, $url);
+    } 
+} elseif (preg_match("#/popart#", $url)) {
+    $controller = new popartController($twig, $url);
+    
+    if (preg_match("#^/popart/image#", $url)) {
+        $controller = new popartImageController($twig, $url);
+    } elseif (preg_match("#^/popart/info#", $url)) {
+        $controller = new popartInfoController($twig, $url);
+    } 
 }
 
-$context['title'] = $title;
-
-echo $twig->render($template, $context);
+if ($controller) {
+    $controller->get();
+}
