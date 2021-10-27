@@ -31,28 +31,28 @@ if ($url == "/") {
     } elseif (preg_match("#^/abstractionism/info#", $url)) {
         $controller = new abstractionismInfoController($twig, $url);
     } 
-} elseif (preg_match("#/artnouveau#", $url)) {
+} elseif (preg_match("#/art-nouveau#", $url)) {
     $controller = new artnouveauController($twig, $url);
     
-    if (preg_match("#^/artnouveau/image#", $url)) {
+    if (preg_match("#^/art-nouveau/image#", $url)) {
         $controller = new artnouveauImageController($twig, $url);
-    } elseif (preg_match("#^/artnouveau/info#", $url)) {
+    } elseif (preg_match("#^/art-nouveau/info#", $url)) {
         $controller = new artnouveauInfoController($twig, $url);
     } 
-} elseif (preg_match("#/avantgarde#", $url)) {
+} elseif (preg_match("#/avant-garde#", $url)) {
     $controller = new avantgardeController($twig, $url);
       
-    if (preg_match("#^/avantgarde/image#", $url)) {
+    if (preg_match("#^/avant-garde/image#", $url)) {
         $controller = new avantgardeImageController($twig, $url);
-    } elseif (preg_match("#^/avantgarde/info#", $url)) {
+    } elseif (preg_match("#^/avant-garde/info#", $url)) {
         $controller = new avantgardeInfoController($twig, $url);
     } 
-} elseif (preg_match("#/popart#", $url)) {
+} elseif (preg_match("#/pop-art#", $url)) {
     $controller = new popartController($twig, $url);
     
-    if (preg_match("#^/popart/image#", $url)) {
+    if (preg_match("#^/pop-art/image#", $url)) {
         $controller = new popartImageController($twig, $url);
-    } elseif (preg_match("#^/popart/info#", $url)) {
+    } elseif (preg_match("#^/pop-art/info#", $url)) {
         $controller = new popartInfoController($twig, $url);
     } 
 }

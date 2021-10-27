@@ -2,16 +2,13 @@
 
 {% block content %} 
         <div class="container">
-            <h1>Это {{title}} </h1>
+            <h1>{{title}} </h1>
         </div>
         
     <div class="container"></div>
         <ul class="list-group">
             <li class="list-group-item">
                 <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link {{ active_item.url_main == url ? 'active' }}" aria-current="page" href="{{active_item.url_main}}">{{active_item.title}}</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link {{ active_item.url_image == url ? 'active' }}" href="{{active_item.url_image}}">Картинка</a>
                     </li>

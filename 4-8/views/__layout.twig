@@ -18,9 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     {% for item in menu %}
-                        <li class="nav-item">
-                            <a class="nav-link {{ title == item.title ? 'active' }}" aria-current="page" href="{{item.url}}">{{item.title}}</a>
-                        </li>
+                        <a class="nav-link {{ title == item.title ? 'active' }}" aria-current="page" href="{{item.url}}">{{item.title}}</a>
                     {% endfor %}
                 </ul>
             </div>
