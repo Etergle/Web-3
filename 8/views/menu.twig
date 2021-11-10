@@ -1,0 +1,12 @@
+{% extends "__layout.twig" %}
+{% block content %}
+    <div class="container">
+        <ul class="list-group">
+            {% for i in item %}
+                <li class="list-group-item">
+                    {% include('template.html') %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
